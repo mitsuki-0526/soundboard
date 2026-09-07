@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background); --color-foreground: var(--foreground);
+  --color-card: var(--card); --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover); --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive); --color-border: var(--border);
+  --color-input: var(--input); --color-ring: var(--ring);
+  --font-sans: var(--font-geist-sans); --font-mono: var(--font-geist-mono);
+  --radius-sm: .5rem; --radius-md: .7rem; --radius-lg: .9rem; --radius-xl: 1.1rem;
+}
+
+:root {
+  color-scheme: dark; --background: #080b12; --foreground: #f8fafc;
+  --card: #111724; --card-foreground: #f8fafc; --popover: #111724; --popover-foreground: #f8fafc;
+  --primary: #22d3ee; --primary-foreground: #061118; --secondary: #202939; --secondary-foreground: #f8fafc;
+  --muted: #18202e; --muted-foreground: #94a3b8; --accent: #293448; --accent-foreground: #f8fafc;
+  --destructive: #f43f5e; --border: rgba(255,255,255,.12); --input: rgba(255,255,255,.14); --ring: #22d3ee;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--background); font-family: var(--font-geist-sans), "Yu Gothic UI", sans-serif; }
+button { cursor: pointer; }
+.sound-pad { background: linear-gradient(145deg, rgba(255,255,255,.095), rgba(255,255,255,.025)); border-color: rgba(255,255,255,.12); box-shadow: inset 0 1px rgba(255,255,255,.04); }
+.sound-pad:hover { transform: translateY(-2px); border-color: var(--pad); box-shadow: 0 10px 34px color-mix(in srgb, var(--pad) 16%, transparent), inset 0 1px rgba(255,255,255,.08); }
+.sound-pad::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--pad); opacity: .85; }
+.sound-pad.is-playing { border-color: var(--pad); box-shadow: 0 0 0 2px color-mix(in srgb, var(--pad) 30%, transparent), 0 12px 45px color-mix(in srgb, var(--pad) 22%, transparent); }
+.pad-cyan { --pad: #22d3ee; }.pad-amber { --pad: #fbbf24; }.pad-violet { --pad: #a78bfa; }.pad-rose { --pad: #fb7185; }.pad-lime { --pad: #a3e635; }.pad-blue { --pad: #60a5fa; }
+.projector-preview::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 22px 22px; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
